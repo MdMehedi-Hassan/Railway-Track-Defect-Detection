@@ -1,13 +1,10 @@
-# 🚆 RailTrack Inspector
-
-**An Explainable Deep Learning–Driven Web Application to Detect and Localize Railway Track Defects**
+# RailTrack Inspector: An Explainable Deep Learning–Driven Web Application to Detect and Localize Railway Track Defects**
 
 ---
 
 ## 📖 Overview
 
-**RailTrack Inspector** is an explainable deep learning–based web application designed to automatically detect, classify, and localize railway track defects such as **missing bolts**, **missing fasteners**, and **rail cracks**.  
-The system integrates **Faster R-CNN** and **YOLO11** object detection models, real-time inference, GPS-based defect localization, and **Grad-CAM explainability**, all within a lightweight **Streamlit** web interface.
+**Railways are an essential part of international transportation, but the majority of defects detection methods rely on manual inspection, which is inefficient, error-prone, and increasingly inadequate for ensuring safety under growing rail traffic. Structural anomalies such as missing or broken fasteners, missing bolts, damaged fishplates, and rail cracks frequently remain undetected through manual inspection, posing risks of severe accidents and economic loss. To address this challenge, we proposed a Deep Learning-based Web Application to Detect Rail Track Defects with Location. We deployed our proposed model Faster R-CNN in a lightweight web application supporting real-time inference, geolocation-based defect mapping, and interpretability via Grad-CAM visualizations. This integration not only enables automated detection and precise localization of defects but also provides transparent decision support to railway maintenance teams. While validated on Bangladesh’s railway infrastructure, the framework is scalable and adaptable to global railway networks.**
 
 ---
 
@@ -19,7 +16,8 @@ The system integrates **Faster R-CNN** and **YOLO11** object detection models, r
 - 💻 **Web-Based Interface:** Built using **Python Streamlit** for ease of deployment and real-time monitoring.
 - 📦 **Database Integration:** All defect reports and GPS data are stored in **MongoDB**.
 - ⚙️ **Model Comparison:** Performance comparison between Faster R-CNN and YOLO11.
-
+<img width="428" height="676" alt="image" src="https://github.com/user-attachments/assets/8eff0857-7e6f-4521-bbd2-c9444831f387" />
+Class distribution before vs after augmentation.
 ---
 
 ## 🧰 Tech Stack
