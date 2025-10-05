@@ -1,4 +1,4 @@
-# RailTrack Inspector: An Explainable Deep Learning–Driven Web Application to Detect and Localize Railway Track Defects**
+# RailTrack Inspector: An Explainable Deep Learning Driven Web Application to Detect Rail Track Defects with Location
 
 ---
 
