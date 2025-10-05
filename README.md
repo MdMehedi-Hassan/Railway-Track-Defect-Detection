@@ -1,156 +1,113 @@
-# Railway-Track-Defect-Detection
+# 🚆 RailTrack Inspector
 
-## Overview
-
-This is a comprehensive web application for detecting defects in railway tracks using YOLO (You Only Look Once) object detection model. The system features:
-
-- **AI-powered defect detection** using YOLOv8 model
-- **User authentication** with admin privileges
-- **MongoDB integration** for data storage and retrieval
-- **Interactive dashboard** with visualizations
-- **Batch processing** of multiple images
-- **Detailed reporting** with confidence scores
-
-## Features
-
-### Core Functionality
-- 🚂 YOLO-based defect detection for railway tracks
-- 📂 Supports folder-based image processing
-- 📊 Interactive results visualization with Plotly
-- 💾 Automatic saving of detection results to MongoDB
-- 📥 Downloadable reports in CSV format
-
-### User Management
-- 👤 Role-based access (admin vs regular users)
-- 🔐 Secure password hashing
-- 📝 User creation and management (admin only)
-- 📊 System statistics dashboard
-
-### Technical Highlights
-- 🐍 Python backend with Streamlit for web interface
-- 🍃 MongoDB for data persistence
-- 🔄 Asynchronous processing with progress tracking
-- 🎨 Custom CSS for enhanced UI/UX
-- 📈 Data visualization with Plotly and Pandas
-
-## Installation
-
-### Prerequisites
-- Python 3.8+
-- MongoDB (running locally on default port 27017)
-- Git
-
-### Setup Instructions
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/railway-defect-detection.git
-   cd railway-defect-detection
-   ```
-
-2. Create and activate a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Download the YOLO model weights file (`best.pt`) and place it in the project root.
-
-5. Start MongoDB service (ensure it's running on localhost:27017)
-
-6. Run the application:
-   ```bash
-   streamlit run main4.py --server.port 8502
-   ```
-
-## Usage
-
-### Default Credentials
-- Admin account: `admin` / `admin123`
-- Regular users can be created by admin
-
-### Workflow
-1. Login with your credentials
-2. Select input method (Folder with Images recommended)
-3. Enter the path to your images folder
-4. Adjust detection settings as needed
-5. Click "Start Processing"
-6. View results and download reports
-
-## File Structure
-
-```
-.
-├── main4.py                # Main application file
-├── yolo11x/                # YOLO model directory
-│   └── best.pt             # YOLO model weights
-├── README.md               # This documentation
-└── requirements.txt        # Python dependencies
-```
-
-## Dependencies
-
-- Python 3.8+
-- Streamlit
-- Ultralytics (YOLOv8)
-- OpenCV
-- Pillow
-- NumPy
-- Pandas
-- Plotly
-- PyMongo
-
-## Configuration
-
-The application is configured to use MongoDB running locally on the default port. To change this, modify the connection string in the `connect_to_mongodb()` function.
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Model not loading**:
-   - Ensure `best.pt` exists in the correct location
-   - Verify the model is compatible with YOLOv8
-
-2. **MongoDB connection issues**:
-   - Check if MongoDB service is running
-   - Verify connection string in code
-
-3. **Dependency conflicts**:
-   - Use the exact versions specified in requirements.txt
-   - Create a fresh virtual environment
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a new branch for your feature
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- YOLO team for the object detection model
-- Streamlit for the web framework
-- MongoDB for the database solution
-
-## Contact
-
-For questions or support, please contact:
-- Md. Mehedi Hassan - [Facebook](https://www.facebook.com/share/1CDCvcHq4J/)
-- Moshiur Rahman Sayem - [Facebook](https://www.facebook.com/share/192c8qrS3v/)
+**An Explainable Deep Learning–Driven Web Application to Detect and Localize Railway Track Defects**
 
 ---
 
-**Note**: This is a prototype system intended for demonstration purposes. For production use, additional security measures and testing are recommended.
+## 📖 Overview
+
+**RailTrack Inspector** is an explainable deep learning–based web application designed to automatically detect, classify, and localize railway track defects such as **missing bolts**, **missing fasteners**, and **rail cracks**.  
+The system integrates **Faster R-CNN** and **YOLO11** object detection models, real-time inference, GPS-based defect localization, and **Grad-CAM explainability**, all within a lightweight **Streamlit** web interface.
+
+---
+
+## 🧠 Key Features
+
+- 🚄 **Automated Detection:** Detects multiple railway track defects from captured images.
+- 🌍 **Location Mapping:** Integrates GPS metadata for precise localization of defects.
+- 🧩 **Explainable AI:** Grad-CAM visualization highlights the regions influencing predictions.
+- 💻 **Web-Based Interface:** Built using **Python Streamlit** for ease of deployment and real-time monitoring.
+- 📦 **Database Integration:** All defect reports and GPS data are stored in **MongoDB**.
+- ⚙️ **Model Comparison:** Performance comparison between Faster R-CNN and YOLO11.
+
+---
+
+## 🧰 Tech Stack
+
+| Component | Technology Used |
+|------------|-----------------|
+| **Framework** | Python 3.10+, Streamlit |
+| **Deep Learning** | PyTorch, TensorFlow |
+| **Model** | Faster R-CNN (ResNet-50 backbone), YOLO11 |
+| **Database** | MongoDB |
+| **Visualization** | Grad-CAM (Explainable AI) |
+| **Annotation Tool** | CVAT.ai |
+| **Frontend** | Streamlit UI |
+| **Backend** | Flask API or integrated Streamlit backend |
+
+---
+
+## 🗂️ Dataset Description
+
+### Primary Dataset
+- **Total Images:** 1,200  
+- **Locations:**  
+  - Feni Railway Station – 669 images  
+  - Chittagong Railway Station – 531 images  
+- **Classes:**
+  - 469 Defect images  
+  - 731 Non-Defect images  
+
+### Secondary Dataset
+- **Total Images:** 1,250 (750 Defect, 500 Non-Defect)  
+- **Subclasses:**
+  - Missing Bolts  
+  - Missing Fasteners  
+  - Rail Cracks  
+
+> Data annotated using **CVAT.ai** and augmented with rotation, flipping, brightness adjustment, and blurring to improve generalization.
+
+---
+
+## 🧮 Model Details
+
+### 1️⃣ Faster R-CNN
+- Backbone: **ResNet-50**
+- Region Proposal Network (RPN) for candidate object generation
+- Achieved **98% accuracy**, **0.9849 F1-score**, and **0.9679 mAP@0.5**
+
+### 2️⃣ YOLO11
+- Faster inference, high recall capability
+- Achieved **97.5% accuracy**, **0.972 F1-score**, and **0.985 mAP@0.5**
+
+| Metric | Faster R-CNN | YOLO11 |
+|--------|---------------|--------|
+| Accuracy | 0.98 | 0.975 |
+| F1-Score | 0.9849 | 0.972 |
+| Recall | 0.98 | 0.969 |
+| Precision | 0.9899 | 0.975 |
+| mAP@0.5 | 0.9679 | 0.985 |
+
+---
+
+## 🧾 Evaluation Metrics
+
+- **Accuracy** – Overall correct predictions  
+- **Precision** – Fraction of true positives among predicted positives  
+- **Recall** – Fraction of true positives among actual positives  
+- **F1-Score** – Harmonic mean of precision and recall  
+- **mAP@0.5** – Mean Average Precision across all classes  
+
+---
+
+## 🔍 Explainability
+
+Integrated **Grad-CAM (Gradient-weighted Class Activation Mapping)** provides heatmaps showing the regions influencing the model’s decision.  
+- 🔴 Red: High importance  
+- 🔵 Blue: Low importanc  
+This enhances transparency and reliability for railway safety applications.
+
+---
+
+## 🌐 Web Application
+
+The deployed **Streamlit Web App** provides:
+- 📸 Image upload interface  
+- 🧩 Real-time defect detection using the trained model  
+- 📍 Display of defect coordinates on an embedded map  
+- 🧾 Automated defect report generation  
+- 💾 Storage in MongoDB for maintenance tracking  
+
+```bash
+# Run the app locally
+streamlit run app.py
