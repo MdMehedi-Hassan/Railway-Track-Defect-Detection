@@ -16,8 +16,6 @@
 - 💻 **Web-Based Interface:** Built using **Python Streamlit** for ease of deployment and real-time monitoring.
 - 📦 **Database Integration:** All defect reports and GPS data are stored in **MongoDB**.
 - ⚙️ **Model Comparison:** Performance comparison between Faster R-CNN and YOLO11.
-<img width="428" height="676" alt="image" src="https://github.com/user-attachments/assets/8eff0857-7e6f-4521-bbd2-c9444831f387" />
-Class distribution before vs after augmentation.
 ---
 
 ## 🧰 Tech Stack
